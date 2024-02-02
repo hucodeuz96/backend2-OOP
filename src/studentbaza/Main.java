@@ -7,11 +7,13 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+
         Student.students[0] = new Student("Lazizbek","Olimov",21,1,"Tashkent");
         Student.students[1]= new Student("Laziz","Olimov",21,1,"Tashkent");
         Student.students[2] = new Student("Lazizjon","Olimov",21,1,"Tashkent");
         Student.students[3] = new Student("laziza","Olimova",21,1,"Tashkent");
-
+            String txt = "salom";
+            String txt1= new String("salom");
         welcome();
     }
     public static void welcome(){

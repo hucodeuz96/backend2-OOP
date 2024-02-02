@@ -22,7 +22,6 @@ public class Student {
         this.age = age;
         this.id = id;
         this.address = address;
-
     }
 
     //Constructor
@@ -31,7 +30,7 @@ public class Student {
         scanner = new Scanner(System.in);
         Student student = new Student();
         System.out.print("Enter Name : ");
-        student.name = scanner.nextLine();
+        student.name = scanner.nextLine();//set
         System.out.print("Enter Last Name : ");
         student.lastName = scanner.nextLine();
         System.out.print("Enter Age : ");
@@ -51,7 +50,7 @@ public class Student {
     public static  void displayAllStudents(){
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null) {
-                System.out.println(students[i].toString());
+                System.out.println(students[i].toString());//get
             }
         }
     }
