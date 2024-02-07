@@ -2,6 +2,7 @@ package personBaza;
 
 
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,9 +15,56 @@ public class Person {
    private int age;
    private int id;
    private Address address;
+   private Card[] cards = new Card[5];
    static Scanner scanner = new Scanner(System.in);
    static int iD = 1;
    static Person[]people = new Person[50];
+
+    public Card[] getCards() {
+        return cards;
+    }
+
+    public void setCards(Card[] cards) {
+        this.cards = cards;
+    }
+
+    public static  void addCardToPerson(){
+       System.out.print("personId: ");
+       int personId = scanner.nextInt();
+       System.out.print("cardId: ");
+       Long cardId = scanner.nextLong();
+       for (Person person : people) {
+           if (person!=null && person.getId()==personId) {
+               Card[] cards1 = addCard(person, cardId);
+               person.setCards(cards1);
+           }
+       }
+
+
+
+   }
+   private static Card[] addCard(Person person,Long cardId){
+        Card card = new Card();
+       for (Card card2 : Card.cards) {
+           if (card2!=null && card2.getId()==cardId) {
+               card = card2;
+           }
+       }
+       Card[] cards1 = person.getCards();
+       for (int i = 0; i < cards1.length; i++) {
+           if (cards1[i]==null){
+               cards1[i]=card;
+               break;
+           }
+       }
+//       for (Card card1 : cards1) {
+//           if (card1==null) {
+//               card1 = card;
+//               break;
+//           }
+//       }
+       return cards1;
+   }
 
    public String getName() {//olish uchun
        return this.name;
@@ -48,14 +96,18 @@ public class Person {
    public Address getAddress() {
        return this.address;
    }
-   public String display() {
-       String add = "null";
-         add = address != null ? address.displayAdd() : "";
 
-       return "Person { Name : "+name+", Last_Name : "+lastName+
-               ", age : "+age+",id : "+id+" , address :{ "
-               + add + "} }";
-   }
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                ", address=" + address +
+                ", cards=" + Arrays.toString(Arrays.stream(cards).filter(Objects::nonNull).toArray()) +
+                '}';
+    }
 
     public static void createPerson() {
         System.out.println("**************Add Person**************");
@@ -80,7 +132,7 @@ public class Person {
     public static  void displayAllPersons(){
         for (int i = 0; i < people.length; i++) {
             if (people[i] != null) {
-                System.out.println(people[i].display());//get
+                System.out.println(people[i].toString());//get
             }
         }
     }

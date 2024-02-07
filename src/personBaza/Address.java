@@ -11,6 +11,19 @@ public class Address {
     private int homeNumber;
     static  Scanner scanner = new Scanner(System.in);
     static Long ID=1L;
+
+    public Address() {
+    }
+
+    public Address(Long id, String country, String region, String destrict, String street, int homeNumber) {
+        this.id = id;
+        this.country = country;
+        this.region = region;
+        this.destrict = destrict;
+        this.street = street;
+        this.homeNumber = homeNumber;
+    }
+
     static Address[] addresses = new Address[100];
 
     public Long getId(){
