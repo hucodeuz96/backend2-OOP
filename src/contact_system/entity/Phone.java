@@ -2,6 +2,9 @@ package contact_system.entity;
 
 import inheritanc3.entity.BaseClass;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Phone  extends BaseClass {
     private String color;
     private String model;
@@ -10,12 +13,31 @@ public class Phone  extends BaseClass {
     private Contact contact[]=new Contact[50];
     private SimCard simCard[] = new SimCard[simCardCount];
 
+    public int getSimCardCount() {
+        return simCardCount;
+    }
+
+    public void setSimCardCount(int simCardCount) {
+        this.simCardCount = simCardCount;
+    }
+
+    public SimCard[] getSimCard() {
+        return simCard;
+    }
+
+    public void setSimCard(SimCard[] simCard) {
+        this.simCard = simCard;
+    }
+
     public Phone(Long id, String name, String address, String color, String model, int memory, int simCardCount) {
         super(id, name, address);
         this.color = color;
         this.model = model;
         this.memory = memory;
         this.simCardCount = simCardCount;
+    }
+
+    public Phone() {
     }
 
     @Override
@@ -26,7 +48,9 @@ public class Phone  extends BaseClass {
                 "color='" + color + '\'' +
                 ", model='" + model + '\'' +
                 ", memory=" + memory +
-                ", simCardCount=" + simCardCount +
+                ", simCard=" + Arrays.toString(Arrays.stream(simCard).filter(Objects::nonNull).toArray()) +
                 '}';
     }
+
+
 }

@@ -11,6 +11,11 @@ public class BaseClass {//SuperClass,ParentClass
         this.address = address;
     }
 
+    public BaseClass(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public BaseClass() {
     }
 
