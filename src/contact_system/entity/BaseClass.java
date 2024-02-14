@@ -3,6 +3,8 @@ package contact_system.entity;
 public class BaseClass {
     private int id;
     private String name;
+    protected static String count;
+
 
     public int getId() {
         return id;

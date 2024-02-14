@@ -1,6 +1,6 @@
 package contact_system.entity;
 
-import inheritanc3.entity.BaseClass;
+
 
 public class Contact extends BaseClass {
    private String lastname;
@@ -8,11 +8,12 @@ public class Contact extends BaseClass {
    private String email;
    private SimCard simCard;
 
-    public Contact(Long id, String name, String address, String lastname, String number, String email) {
-        super(id, name, address);
+    public Contact(int id, String name, String lastname, String number, String email, SimCard simCard) {
+        super(id, name);
         this.lastname = lastname;
         this.number = number;
         this.email = email;
+        this.simCard = simCard;
     }
 
     public Contact(String lastname, String number, String email) {

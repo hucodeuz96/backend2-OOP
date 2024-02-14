@@ -7,7 +7,7 @@ import contact_system.entity.SimCard;
 import java.util.Scanner;
 
 
-public class PhoneService extends BaseInterface {
+public class PhoneService implements BaseInterface {
     static Scanner scanner = new Scanner(System.in);
    static Phone []phones = new Phone[50];
    static Long id = 1L;
@@ -73,7 +73,7 @@ public class PhoneService extends BaseInterface {
 
     @Override
     public void getOne() {
-        super.getOne();
+
     }
 
     @Override
